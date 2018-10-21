@@ -45,4 +45,6 @@ wlsjs.api.getAccountVotes(user, function(err, result) {
   let sum2 = z/x;
   console.log("User's Self Voting Percentage: ".yellow + sum1.toString().substring(0,5).green + "%".green);
   console.log("User's Selfless Voting Percentage: ".yellow + sum2.toString().substring(0,5).green + "%".green);
+  process.exit(1);
+
 });

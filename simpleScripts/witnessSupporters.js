@@ -1,8 +1,13 @@
 let wlsjs = require("wlsjs");
+
 let steem = require('steem');
 
-// NAME OF THE TOP WITNESS IN LIST
+var colors = require('colors');
+
 let witnessAccount = "powerpicswitness";
+
+console.log("Gathering Data...");
+
 
 steem.api.setOptions({ url: 'https://api.steemit.com' });
 
@@ -13,10 +18,9 @@ wlsjs.config.set('chain_id', 'de999ada2ff7ed3d3d580381f229b40b5a0261aec48eb830e5
 
 
 wlsjs.api.getAccountHistory(witnessAccount, 10000, 10000, function(err, result) {
-  // incrementals
   let supportcount = 0;
+
   let count = 0;
-  // ARRAY TO CONTAIN SUPPORTERS USERNAMES
   let supporters = [];
 
   // console.log(err, result);
@@ -38,25 +42,25 @@ wlsjs.api.getAccountHistory(witnessAccount, 10000, 10000, function(err, result) 
           case true:
           count--
 
-            console.log("Witness Vote: Operation #" + count );
-            console.log("User @" + account + " has voted for " + witness + " " + approve);
-            console.log("\n");
+            // console.log("Witness Vote: Operation #" + count );
+            // console.log("User @" + account + " has voted for " + witness + " " + approve);
+            // console.log("\n");
             supporters.push(account);
-            console.log("Pushing User to Supporters: " + account);
-            console.log(supporters);
+            // console.log("Pushing User to Supporters: " + account);
+            // console.log(supporters);
 
             break;
           case false:
             count++
-            console.log("Witness Vote: Operation #" +count );
-            console.log("User @" + account + " has removed their vote for " + witness + " " + approve);
-            console.log("\n");
+            // console.log("Witness Vote: Operation #" +count );
+            // console.log("User @" + account + " has removed their vote for " + witness + " " + approve);
+            // console.log("\n");
             for( n in supporters){
                if ( supporters[n] === account) {
-                 console.log(supporters[n]);
+                 // console.log(supporters[n]);
                  supporters.splice(n, 1);
-                 console.log("Removing User from Supporters: " + account);
-                 console.log(supporters);
+                 // console.log("Removing User from Supporters: " + account);
+                 // console.log(supporters);
 
                }
             }
@@ -68,7 +72,9 @@ wlsjs.api.getAccountHistory(witnessAccount, 10000, 10000, function(err, result) 
 for (n in supporters) {
   supportcount++
   let supporter = supporters[n];
-  console.log("Supporter #" + supportcount + " -- @" + supporter);
+  console.log("Supporter #".red.bold + supportcount.toString().red.bold + " -- "+"@".blue.bold + supporter.blue.bold);
 
 }
+process.exit(1);
+
 });

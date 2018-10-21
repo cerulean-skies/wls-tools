@@ -1,6 +1,8 @@
 let wlsjs = require("wlsjs");
 let steem = require('steem');
 
+var colors = require('colors');
+
 // Incremental to count total
 let totalvotes = 0;
 
@@ -39,10 +41,11 @@ wlsjs.api.lookupAccounts(nextlastuser, 1000, function(err, result) {
 
     }
     for (n in users) {
-      console.log(users[n]);
+      console.log(users[n].green);
     }
 
     count();
+    process.exit(1);
 
 });
 });
@@ -54,6 +57,7 @@ function count(){
   for (n in users) {
     numUsers++;
   }
-  console.log("Total Users: "+ numUsers);
+
+  console.log("Total Users: ".red.bold + numUsers.toString().green.bold);
 
 }

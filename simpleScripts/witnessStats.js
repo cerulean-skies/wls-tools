@@ -1,6 +1,8 @@
 let wlsjs = require("wlsjs");
 let steem = require('steem');
 
+var colors = require('colors');
+
 // ARRAY TO CONTAIN WITNESS USERNAMES
 let witnesses = [];
 let totalvotes = 0;
@@ -26,7 +28,7 @@ function getWitnessData(topWitness){
       inc++
       inccount++
       let obj = result[inc];
-      console.log("Witness #"+inccount +": "+obj.owner);
+      console.log("Witness #".red.bold +inccount.toString().red.bold +": "+obj.owner.blue.bold);
       witnesses.push(obj.owner);
       // console.log(witnesses);
 
@@ -82,11 +84,11 @@ function getWitnessData(topWitness){
           let supporter = supporters[n];
 
       }
-      console.log("Witness: @"+witnessName + " has " + supportcount +"supporters.");
+      console.log("Witness:  @".red.bold + witnessName.red.bold + " has ".red.bold + supportcount.toString().blue.bold +" supporters.".red.bold);
       totalvotes = totalvotes + supportcount;
-      console.log("Total Votes Made: " + totalvotes);
+      console.log("Total Votes Made: " + totalvotes.toString().green.bold);
 
-      });
+    });
 
     }
 
