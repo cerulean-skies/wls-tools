@@ -1,0 +1,69 @@
+let wlsjs = require("wlsjs");
+
+let clear = require('clear');
+let steem = require('steem');
+
+var colors = require('colors');
+
+let user = "ceruleanblue";
+
+
+let witnesses = [];
+
+let totalvotes = 0;
+steem.api.setOptions({ url: 'https://api.steemit.com' });
+
+
+wlsjs.api.setOptions({ url: 'ws://188.166.99.136:8090' });
+wlsjs.config.set('address_prefix', 'WLS');
+wlsjs.config.set('chain_id', 'de999ada2ff7ed3d3d580381f229b40b5a0261aec48eb830e540080817b72866');
+
+
+let users = [];
+let lastuser = "";
+let nextlastuser = "";
+
+wlsjs.api.lookupAccounts('""', 1000, function(err, result) {
+  // console.log(err, result);
+  for (n in result){
+    // console.log(result[n]);
+    users.push(result[n]);
+    lastuser = result[n];
+
+  }
+
+wlsjs.api.lookupAccounts(lastuser, 1000, function(err, result) {
+  for (n in result){
+    users.push(result[n]);
+    nextlastuser = result[n];
+
+  }
+
+
+  wlsjs.api.lookupAccounts(nextlastuser, 1000, function(err, result) {
+    for (n in result){
+      users.push(result[n]);
+
+    }
+    for (n in users) {
+      console.log(users[n]);
+    }
+
+    count();
+
+  });
+  });
+
+
+});
+
+
+function count(){
+  let numUsers = 0;
+  for (n in users) {
+    numUsers++;
+
+  }
+  console.log("Total Users: "+ numUsers);
+
+}
