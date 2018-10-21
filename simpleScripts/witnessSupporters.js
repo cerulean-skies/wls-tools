@@ -1,5 +1,4 @@
 let wlsjs = require("wlsjs");
-
 let steem = require('steem');
 
 var colors = require('colors');
