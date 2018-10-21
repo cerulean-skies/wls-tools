@@ -19,7 +19,6 @@ let z = 0;
 const user = "haejin";
 let created = "";
 
-
 wlsjs.api.getAccounts([user], function(err, result) {
 created = result[0].created.substring(0,10);
 });
