@@ -1,15 +1,8 @@
 let wlsjs = require("wlsjs");
-
-let clear = require('clear');
 let steem = require('steem');
-
-var colors = require('colors');
 
 // NAME OF THE TOP WITNESS IN LIST
 let witnessAccount = "powerpicswitness";
-
-
-
 
 steem.api.setOptions({ url: 'https://api.steemit.com' });
 

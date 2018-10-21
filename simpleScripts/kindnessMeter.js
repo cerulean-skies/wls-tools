@@ -1,6 +1,4 @@
 let wlsjs = require("wlsjs");
-
-let clear = require('clear');
 let steem = require('steem');
 
 var colors = require('colors');
@@ -12,6 +10,7 @@ wlsjs.config.set('address_prefix', 'WLS');
 wlsjs.config.set('chain_id', 'de999ada2ff7ed3d3d580381f229b40b5a0261aec48eb830e540080817b72866');
 
 // Leave incrementals as they are.
+
 let x = 0;
 let y = 0;
 let z = 0;
@@ -21,22 +20,13 @@ const user = "haejin";
 let created = "";
 
 
-
-
 wlsjs.api.getAccounts([user], function(err, result) {
-
 created = result[0].created.substring(0,10);
 });
 
-
-
 wlsjs.api.getAccountVotes(user, function(err, result) {
-  // console.log(err, result);
-
-
 
   for (n in result){
-    // console.log(result[n]);
     x++
     let perm = result[n]
     let split = perm.authorperm.split('/')

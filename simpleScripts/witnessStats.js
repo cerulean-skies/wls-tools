@@ -1,15 +1,10 @@
 let wlsjs = require("wlsjs");
-
-let clear = require('clear');
 let steem = require('steem');
 
-var colors = require('colors');
-
-
-
+// ARRAY TO CONTAIN WITNESS USERNAMES
 let witnesses = [];
-
 let totalvotes = 0;
+
 steem.api.setOptions({ url: 'https://api.steemit.com' });
 
 
@@ -41,7 +36,6 @@ function getWitnessData(topWitness){
 
       let witnessName = witnesses[n];
 
-
       wlsjs.api.getAccountHistory(witnessName, 10000, 10000, function(err, result) {
         let supportcount = 0;
 
@@ -51,8 +45,6 @@ function getWitnessData(topWitness){
         for (n in result){
           let obj = result[n]
           let op = obj[1].op;
-
-
 
           if (op[0] === "account_witness_vote") {
 
@@ -77,7 +69,6 @@ function getWitnessData(topWitness){
                   for( n in supporters){
                      if ( supporters[n] === account) {
                        supporters.splice(n, 1);
-
 
                      }
                   }

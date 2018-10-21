@@ -1,18 +1,10 @@
 let wlsjs = require("wlsjs");
-
-let clear = require('clear');
 let steem = require('steem');
-
-var colors = require('colors');
-
-
 
 // Incremental to count total
 let totalvotes = 0;
 
-
 steem.api.setOptions({ url: 'https://api.steemit.com' });
-
 
 wlsjs.api.setOptions({ url: 'ws://188.166.99.136:8090' });
 wlsjs.config.set('address_prefix', 'WLS');
@@ -41,7 +33,7 @@ wlsjs.api.lookupAccounts(lastuser, 1000, function(err, result) {
   }
 
 
-  wlsjs.api.lookupAccounts(nextlastuser, 1000, function(err, result) {
+wlsjs.api.lookupAccounts(nextlastuser, 1000, function(err, result) {
     for (n in result){
       users.push(result[n]);
 
@@ -52,10 +44,8 @@ wlsjs.api.lookupAccounts(lastuser, 1000, function(err, result) {
 
     count();
 
-  });
-  });
-
-
+});
+});
 });
 
 
@@ -63,7 +53,6 @@ function count(){
   let numUsers = 0;
   for (n in users) {
     numUsers++;
-
   }
   console.log("Total Users: "+ numUsers);
 
