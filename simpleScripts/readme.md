@@ -1,4 +1,4 @@
-## Whaleshares Simple Tools:
+## Whaleshares Data Collection Tools:
 
 ### - kindnessMeter.js
 This tool has been designed to collect data on every single vote made by a user, and determine a ratio of selfishness/selflessness. 
