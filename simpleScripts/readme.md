@@ -1,7 +1,7 @@
 ### WHaleshares Simple Tools:
 
-- kindnessMeter.js
+### - kindnessMeter.js
 
-- totalUsers.js
-- witnesssStats.js
-- witnessSupporters.js
+### - totalUsers.js
+### - witnesssStats.js
+### - witnessSupporters.js
