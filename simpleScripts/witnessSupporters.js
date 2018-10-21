@@ -5,6 +5,7 @@ let steem = require('steem');
 
 var colors = require('colors');
 
+// NAME OF THE TOP WITNESS IN LIST
 let witnessAccount = "powerpicswitness";
 
 
@@ -19,9 +20,10 @@ wlsjs.config.set('chain_id', 'de999ada2ff7ed3d3d580381f229b40b5a0261aec48eb830e5
 
 
 wlsjs.api.getAccountHistory(witnessAccount, 10000, 10000, function(err, result) {
+  // incrementals
   let supportcount = 0;
-
   let count = 0;
+  // ARRAY TO CONTAIN SUPPORTERS USERNAMES
   let supporters = [];
 
   // console.log(err, result);

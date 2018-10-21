@@ -11,14 +11,12 @@ wlsjs.api.setOptions({ url: 'ws://188.166.99.136:8090' });
 wlsjs.config.set('address_prefix', 'WLS');
 wlsjs.config.set('chain_id', 'de999ada2ff7ed3d3d580381f229b40b5a0261aec48eb830e540080817b72866');
 
-
-
-
-
-
+// Leave incrementals as they are.
 let x = 0;
 let y = 0;
 let z = 0;
+
+// The User that you would like to score.
 const user = "haejin";
 let created = "";
 

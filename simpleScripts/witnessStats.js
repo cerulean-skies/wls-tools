@@ -5,7 +5,6 @@ let steem = require('steem');
 
 var colors = require('colors');
 
-let user = "ceruleanblue";
 
 
 let witnesses = [];
@@ -18,7 +17,7 @@ wlsjs.api.setOptions({ url: 'ws://188.166.99.136:8090' });
 wlsjs.config.set('address_prefix', 'WLS');
 wlsjs.config.set('chain_id', 'de999ada2ff7ed3d3d580381f229b40b5a0261aec48eb830e540080817b72866');
 
-
+// NAME OF THE TOP WITNESS IN LIST
 getWitnessData("powerpicswitness");
 
 function getWitnessData(topWitness){
