@@ -1,5 +1,10 @@
 ## Whaleshares Data Collection Tools:
 
+### Installation Steps:
+```
+npm install wlsjs steem colors
+```
+
 ### - kindnessMeter.js
 This tool has been designed to collect data on every single vote made by a user, and determine a ratio of selfishness/selflessness. 
 ### - totalUsers.js
