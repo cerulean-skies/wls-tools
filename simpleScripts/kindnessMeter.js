@@ -16,7 +16,11 @@ let y = 0;
 let z = 0;
 
 // The User that you would like to score.
-const user = "haejin";
+
+let args = process.argv.slice(2);
+// console.log(args[0]);
+
+const user = args[0];
 let created = "";
 
 wlsjs.api.getAccounts([user], function(err, result) {

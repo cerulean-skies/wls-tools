@@ -7,6 +7,9 @@ var colors = require('colors');
 let witnesses = [];
 let totalvotes = 0;
 
+let args = process.argv.slice(2);
+let witnessAccount = args[0];
+
 steem.api.setOptions({ url: 'https://api.steemit.com' });
 
 
@@ -15,7 +18,7 @@ wlsjs.config.set('address_prefix', 'WLS');
 wlsjs.config.set('chain_id', 'de999ada2ff7ed3d3d580381f229b40b5a0261aec48eb830e540080817b72866');
 
 // NAME OF THE TOP WITNESS IN LIST
-getWitnessData("powerpicswitness");
+getWitnessData(witnessAccount);
 
 function getWitnessData(topWitness){
 
